@@ -1,6 +1,6 @@
 {
     "name": "cybertale/definition",
-    "description": "Definitions for cybertale arhitecture",
+    "description": "Definitions for cybertale architecture",
     "type": "library",
     "autoload": {
         "psr-4": {
@@ -12,5 +12,7 @@
             "name": "Joso Marich"
         }
     ],
-    "require": {}
+    "require": {},
+    "license": "GPL-3.0-only",
+    "version": "1.0.0"
 }
