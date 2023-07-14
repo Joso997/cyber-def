@@ -1,0 +1,16 @@
+{
+    "name": "cybertale/definition",
+    "description": "Definitions for cybertale arhitecture",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Cybertale\\Definition\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Joso Marich"
+        }
+    ],
+    "require": {}
+}
