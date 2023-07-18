@@ -2,12 +2,12 @@
 
 namespace Cybertale\Definition\FormComponents;
 
-use Cybertale\Definition\Services\CyberInterface\FormComponents\FormComponentAbstract;
-use Cybertale\Definition\Services\CyberInterface\Helpers\ActionsEnum;
-use Cybertale\Definition\Services\CyberInterface\Helpers\ObjectsEnum;
-use Cybertale\Definition\Services\CyberInterface\Helpers\RegionsEnum;
-use Cybertale\Definition\Services\CyberInterface\Helpers\StatsEnum;
-use Cybertale\Definition\Services\CyberInterface\Helpers\SubObjectsEnum;
+use Cybertale\Definition\FormComponents\FormComponentAbstract;
+use Cybertale\Definition\Helpers\ActionsEnum;
+use Cybertale\Definition\Helpers\ObjectsEnum;
+use Cybertale\Definition\Helpers\RegionsEnum;
+use Cybertale\Definition\Helpers\StatsEnum;
+use Cybertale\Definition\Helpers\SubObjectsEnum;
 
 class FieldComponent extends FormComponentAbstract
 {
