@@ -11,4 +11,6 @@ enum ActionsEnum: int
     case InsertClick = 4;
     case InsertNumber = 5;
     case Check = 6;
+    case SelectIdFromName = 7;
+    case AClick = 8;
 }

@@ -16,14 +16,12 @@ enum ObjectsEnum: int
     case Radio = 9;
     case Column = 10;
     case ColumnButton = 11;
-    case FieldButton = 12;
-    case SelectButton = 13;
-    case ListRow = 14;
-    case ECabinetRow = 15;
-    case ECabinetColumn = 16;
-    case ModalRow = 17;
-    case MapPicker = 18;
-    case FieldCode = 19;
-    case DataSelect = 20;
-    case UploadFile = 21;
+    case InputGroup = 12;
+    case ECabinetRow = 13;
+    case ECabinetColumn = 14;
+    case ModalForm = 15;
+    case MapPicker = 16;
+    case MultiMedia = 17;
+    case UploadFile = 18;
+    case Label = 19;
 }
