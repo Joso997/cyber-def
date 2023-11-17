@@ -20,6 +20,7 @@ enum StatsEnum: int
     case ErrorMessage = 13;
     case IsValid = 14;
     case Order = 15;
+    case DependsOn = 16;
 }
 
 

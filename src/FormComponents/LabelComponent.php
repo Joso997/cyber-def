@@ -8,23 +8,12 @@ use Cybertale\Definition\Helpers\RegionsEnum;
 use Cybertale\Definition\Helpers\StatsEnum;
 use Cybertale\Definition\Helpers\SubObjectsEnum;
 
-class AlertComponent extends ComponentAbstract
+class LabelComponent extends ComponentAbstract
 {
-
-
     public function __construct(string $label, string $tag, string $value, string $design){
         $this->value = $value;
         $this->design = $design;
-        parent::__construct($label, $tag,RegionsEnum::Form, ObjectsEnum::Alert,  SubObjectsEnum::ParentObject, ActionsEnum::None);
-    }
-
-    public function setOptional(string $value = null, string $design = "", string $placeholder = "", string $tooltip=""): static
-    {
-        $this->value = $value;
-        $this->design = $design;
-        $this->placeholder = $placeholder;
-        $this->tooltip = $tooltip;
-        return $this;
+        parent::__construct($label, $tag,RegionsEnum::Form, ObjectsEnum::Label,  SubObjectsEnum::ParentObject, ActionsEnum::None);
     }
 
     protected function setStats() : array{

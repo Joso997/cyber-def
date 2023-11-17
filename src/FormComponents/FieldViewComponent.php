@@ -15,15 +15,6 @@ class FieldViewComponent extends FormComponentAbstract
         parent::__construct($label, $tag,RegionsEnum::Table, ObjectsEnum::Field,  SubObjectsEnum::ParentObject, ActionsEnum::None);
     }
 
-    public function setOptional(string $value = null, string $design = "", string $placeholder = "", string $tooltip = ""): static
-    {
-        $this->value = $value;
-        $this->design = $design;
-        $this->placeholder = $placeholder;
-        $this->tooltip = $tooltip;
-        return $this;
-    }
-
     protected function setStats() : array{
         $response = [
             StatsEnum::Label->value =>["Data" => $this->label],

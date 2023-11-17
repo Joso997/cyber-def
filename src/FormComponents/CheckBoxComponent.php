@@ -10,22 +10,11 @@ use Cybertale\Definition\Helpers\SubObjectsEnum;
 
 class CheckBoxComponent extends FormComponentAbstract
 {
-    private string $elementType = "";
 
     public function __construct(string $label, string $tag, $elementType = ""){
         $this->elementType = $elementType;
         $this->value = false;
         parent::__construct($label, $tag, RegionsEnum::Form, ObjectsEnum::CheckBox, SubObjectsEnum::ParentObject, ActionsEnum::Check);
-    }
-
-    public function setOptional(string $value = null, string $design = "", string $placeholder = "", string $tooltip = "", string $elementType = ""): static
-    {
-        $this->value = $value;
-        $this->design = $design;
-        $this->placeholder = $placeholder;
-        $this->tooltip = $tooltip;
-        $this->elementType = $elementType;
-        return $this;
     }
 
     protected function setStats() : array{

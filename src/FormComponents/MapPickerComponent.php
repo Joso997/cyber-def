@@ -18,16 +18,6 @@ class MapPickerComponent extends FormComponentAbstract
         parent::__construct($label, $tag,RegionsEnum::Form, ObjectsEnum::MapPicker,  SubObjectsEnum::ParentObject, ActionsEnum::None);
     }
 
-    public function setOptional(string $value = null, string $design = "", string $placeholder = "", string $tooltip = "", string $elementType = ""): static
-    {
-        $this->value = $value;
-        $this->design = $design;
-        $this->placeholder = $placeholder;
-        $this->tooltip = $tooltip;
-        $this->elementType = $elementType;
-        return $this;
-    }
-
     protected function setStats() : array{
         $response = [
             StatsEnum::Label->value =>["Data" => $this->label],

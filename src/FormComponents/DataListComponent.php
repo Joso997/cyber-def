@@ -10,21 +10,10 @@ use Cybertale\Definition\Helpers\SubObjectsEnum;
 
 class DataListComponent extends FormComponentAbstract
 {
-    private array $itemList = [];
 
     public function __construct(string $label, string $tag, array $itemList){
         $this->itemList = $itemList;
         parent::__construct($label, $tag, RegionsEnum::Form, ObjectsEnum::DataList, SubObjectsEnum::ParentObject, ActionsEnum::Insert);
-    }
-
-    public function setOptional(string $value = null, string $design = "", string $placeholder = "", string $tooltip = "", array $itemList = []): static
-    {
-        $this->value = $value;
-        $this->design = $design;
-        $this->placeholder = $placeholder;
-        $this->tooltip = $tooltip;
-        $this->itemList = $itemList;
-        return $this;
     }
 
     protected function setStats() : array{

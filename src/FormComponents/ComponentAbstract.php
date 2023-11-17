@@ -6,6 +6,7 @@ use Cybertale\Definition\Helpers\ActionsEnum;
 use Cybertale\Definition\Helpers\ObjectsEnum;
 use Cybertale\Definition\Helpers\RegionsEnum;
 use Cybertale\Definition\Helpers\SubObjectsEnum;
+use Cybertale\Definition\ObjectTemplate;
 
 abstract class ComponentAbstract
 {
@@ -19,12 +20,11 @@ abstract class ComponentAbstract
     protected string $belongTo = "";
     protected string $errorMessage = "";
     protected string $order = "0";
+    protected string $dependsOn = "";
     protected RegionsEnum $region;
     protected ObjectsEnum $objectType;
     protected SubObjectsEnum $subObjectType;
     protected ActionsEnum $action;
-
-    abstract public function setOptional(string $value = null, string $design = "", string $placeholder = "", string $tooltip = ""): static;
     abstract protected function setStats() : array;
 
     public function __construct(string $label, string $tag, RegionsEnum $region, ObjectsEnum $objectType, SubObjectsEnum $subObjectType, ActionsEnum $action){
@@ -69,24 +69,6 @@ abstract class ComponentAbstract
         return $this;
     }
 
-    public function withId(string $id): static
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-    public function belongTo(string $belongTo): static
-    {
-        $this->belongTo = $belongTo;
-        return $this;
-    }
-
-    public function order(string $orderIndex): static
-    {
-        $this->order = $orderIndex;
-        return $this;
-    }
-
     public function get() : array{
         return [
             "Stats" => $this->setStats(),
@@ -95,5 +77,75 @@ abstract class ComponentAbstract
             "SubObjectEnum" => $this->subObjectType,
             "ActionEnum" => $this->action
         ];
+    }
+
+    public function getAsObjectTemplate() : ObjectTemplate {
+        return new ObjectTemplate($this->region, $this->objectType, $this->subObjectType, $this->action, $this->setStats());
+    }
+
+    public function setLabel(string $label): ComponentAbstract
+    {
+        $this->label = $label;
+        return $this;
+    }
+
+    public function setTag(string $tag): ComponentAbstract
+    {
+        $this->tag = $tag;
+        return $this;
+    }
+
+    public function setValue(?string $value): ComponentAbstract
+    {
+        $this->value = $value;
+        return $this;
+    }
+
+    public function setDesign(string $design): ComponentAbstract
+    {
+        $this->design = $design;
+        return $this;
+    }
+
+    public function setPlaceholder(string $placeholder): ComponentAbstract
+    {
+        $this->placeholder = $placeholder;
+        return $this;
+    }
+
+    public function setTooltip(string $tooltip): ComponentAbstract
+    {
+        $this->tooltip = $tooltip;
+        return $this;
+    }
+
+    public function setId(string $id): ComponentAbstract
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    public function setBelongTo(string $belongTo): ComponentAbstract
+    {
+        $this->belongTo = $belongTo;
+        return $this;
+    }
+
+    public function setErrorMessage(string $errorMessage): ComponentAbstract
+    {
+        $this->errorMessage = $errorMessage;
+        return $this;
+    }
+
+    public function setOrder(string $order): ComponentAbstract
+    {
+        $this->order = $order;
+        return $this;
+    }
+
+    public function setDependsOn(string $dependsOn): ComponentAbstract
+    {
+        $this->dependsOn = $dependsOn;
+        return $this;
     }
 }
