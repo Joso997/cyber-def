@@ -18,10 +18,7 @@ abstract class ObjectTypeAbstract
      * @var array<int, StatAbstract>
      */
     protected array $stats;
-    public function get(): ObjectTemplate
-    {
-        return new ObjectTemplate(RegionsEnum::Form, ObjectsEnum::Button, SubObjectsEnum::Middle, ActionsEnum::None, $this->stats);
-    }
+    public abstract function get(): ObjectTemplate;
 
     public function setStats(StatsEnum $statsEnum, string $data): ObjectTypeAbstract
     {

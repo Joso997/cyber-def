@@ -9,16 +9,17 @@ use Cybertale\Definition\Helpers\StatsEnum;
 use Cybertale\Definition\Helpers\SubObjectsEnum;
 use Cybertale\Definition\ObjectTemplate;
 
-class Button extends ObjectTypeAbstract
+class CheckBox extends ObjectTypeAbstract
 {
-    public function __construct (string $label, string $tag, string $design) {
+    public function __construct (string $label, string $tag, string $design = 'form-control') {
         $this->setStats(StatsEnum::Label, $label)
+            ->setStats(StatsEnum::Value, null)
             ->setStats(StatsEnum::Design, $design)
             ->setStats(StatsEnum::Tag, $tag);
     }
 
     public function get(): ObjectTemplate
     {
-        return new ObjectTemplate(RegionsEnum::Form, ObjectsEnum::Button, SubObjectsEnum::Middle, ActionsEnum::None, $this->stats);
+        return new ObjectTemplate(RegionsEnum::Form, ObjectsEnum::CheckBox, SubObjectsEnum::ParentObject, ActionsEnum::Check, $this->stats);
     }
 }
