@@ -9,17 +9,17 @@ use Cybertale\Definition\Helpers\StatsEnum;
 use Cybertale\Definition\Helpers\SubObjectsEnum;
 use Cybertale\Definition\ObjectTemplate;
 
-class Field extends ObjectTypeAbstract
+class SelectList extends ObjectTypeAbstract
 {
-    public function __construct (string $tag, string $id = null, string $design = '', string $value = null) {
+    public function __construct (string $tag, array $itemList, string $id = null, string $value = null) {
         $this->setStats(StatsEnum::Value, $value)
             ->setStats(StatsEnum::Tag, $tag)
-            ->setStats(StatsEnum::Design, $design)
-            ->setStats(StatsEnum::Id, $id);
+            ->setStats(StatsEnum::Id, $id)
+            ->setStats(StatsEnum::ItemList, json_encode($itemList));
     }
 
     public function get(): ObjectTemplate
     {
-        return new ObjectTemplate(RegionsEnum::Form, ObjectsEnum::Field, SubObjectsEnum::ParentObject, ActionsEnum::Insert, $this->stats);
+        return new ObjectTemplate(RegionsEnum::Form, ObjectsEnum::SelectList, SubObjectsEnum::ParentObject, ActionsEnum::Insert, $this->stats);
     }
 }

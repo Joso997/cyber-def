@@ -6,7 +6,7 @@ use Cybertale\Definition\Helpers\StatsEnum;
 
 abstract class StatAbstract
 {
-    protected string|null $data = null;
+    protected string|bool|null $data;
 
     public function getData(): ?string
     {

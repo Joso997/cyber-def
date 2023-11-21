@@ -11,11 +11,12 @@ use Cybertale\Definition\ObjectTemplate;
 
 class CheckBox extends ObjectTypeAbstract
 {
-    public function __construct (string $label, string $tag, string $design = 'form-control') {
+    public function __construct (string $label, string $tag, string $id = null, string $design = 'form-control', bool $value = false) {
         $this->setStats(StatsEnum::Label, $label)
-            ->setStats(StatsEnum::Value, null)
+            ->setStats(StatsEnum::Value, $value)
             ->setStats(StatsEnum::Design, $design)
-            ->setStats(StatsEnum::Tag, $tag);
+            ->setStats(StatsEnum::Tag, $tag)
+            ->setStats(StatsEnum::Id, $id);
     }
 
     public function get(): ObjectTemplate

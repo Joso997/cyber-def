@@ -2,13 +2,13 @@
 
 namespace Cybertale\Definition\Helpers\Form;
 
-use Cybertale\Definition\FormComponents\CheckBoxComponent;
-use Cybertale\Definition\FormComponents\FieldComponent;
-use Cybertale\Definition\FormComponents\MapPickerComponent;
-use Cybertale\Definition\FormComponents\RadioComponent;
-use Cybertale\Definition\FormComponents\SelectListComponent;
 use Cybertale\Definition\Helpers\ObjectsEnum;
-use Cybertale\Definition\Services\CyberInterface\Helpers\Form\UploadFile;
+use Cybertale\Definition\ObjectTypes\CheckBox;
+use Cybertale\Definition\ObjectTypes\Field;
+use Cybertale\Definition\ObjectTypes\MapPicker;
+use Cybertale\Definition\ObjectTypes\Radio;
+use Cybertale\Definition\ObjectTypes\SelectList;
+use Cybertale\Definition\ObjectTypes\UploadFile;
 
 class FormObjects
 {
@@ -29,11 +29,11 @@ class FormObjects
     public static function findFromAttribute($id): string
     {
         $arr = [
-            ObjectsEnum::Field->value => FieldComponent::class,
-            ObjectsEnum::Radio->value => RadioComponent::class,
-            ObjectsEnum::CheckBox->value => CheckBoxComponent::class,
-            ObjectsEnum::SelectList->value => SelectListComponent::class,
-            ObjectsEnum::MapPicker->value => MapPickerComponent::class,
+            ObjectsEnum::Field->value => Field::class,
+            ObjectsEnum::Radio->value => Radio::class,
+            ObjectsEnum::CheckBox->value => CheckBox::class,
+            ObjectsEnum::SelectList->value => SelectList::class,
+            ObjectsEnum::MapPicker->value => MapPicker::class,
             ObjectsEnum::UploadFile->value => UploadFile::class
         ];
         return $arr[$id];

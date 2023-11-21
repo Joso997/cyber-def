@@ -21,6 +21,16 @@ class ObjectTemplate
      */
     protected array $stats;
 
+    public function statsToArray(): array {
+        $arr = [];
+        foreach ($this->stats as $key => $value){
+            if ($value instanceof StatAbstract) {
+                $arr[$key] = ['Data' => $value->getData()];
+            }
+        }
+        return $arr;
+    }
+
     public function setRegion(RegionsEnum $region): ObjectTemplate
     {
         $this->region = $region;
@@ -68,6 +78,31 @@ class ObjectTemplate
         $this->subObjectType = $subObjectType;
         $this->action = $action;
         $this->stats = $stats;
+    }
+
+    public function getStats(): array
+    {
+        return $this->stats;
+    }
+
+    public function getRegion(): RegionsEnum
+    {
+        return $this->region;
+    }
+
+    public function getObjectType(): ObjectsEnum
+    {
+        return $this->objectType;
+    }
+
+    public function getSubObjectType(): SubObjectsEnum
+    {
+        return $this->subObjectType;
+    }
+
+    public function getAction(): ActionsEnum
+    {
+        return $this->action;
     }
 
 }

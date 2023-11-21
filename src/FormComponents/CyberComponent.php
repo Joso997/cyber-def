@@ -5,17 +5,16 @@ namespace Cybertale\Definition\FormComponents;
 
 use Cybertale\Definition\ObjectTemplate;
 
-class CyberComponent
+class CyberComponent extends ComponentAbstract
 {
-    private readonly ObjectTemplate $objectTemplate;
 
-    public function __construct(ObjectTemplate $objectTemplate)
-    {
-        $this->objectTemplate = $objectTemplate;
-    }
-
-    protected function setStats(): array
-    {
-        // TODO: Implement setStats() method.
+    public function toArray() : array{
+        return [
+            "Stats" => $this->objectTemplate->statsToArray(),
+            "Region" => $this->objectTemplate->getRegion(),
+            "ObjectEnum" => $this->objectTemplate->getObjectType(),
+            "SubObjectEnum" => $this->objectTemplate->getSubObjectType(),
+            "ActionEnum" => $this->objectTemplate->getAction()
+        ];
     }
 }
