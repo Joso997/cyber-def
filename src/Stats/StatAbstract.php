@@ -2,8 +2,6 @@
 
 namespace Cybertale\Definition\Stats;
 
-use Cybertale\Definition\Helpers\StatsEnum;
-
 abstract class StatAbstract
 {
     protected string|bool|null $data;
