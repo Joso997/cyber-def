@@ -1,6 +1,6 @@
 {
     "name": "cybertale/definition",
-    "description": "Definitions for cybertale architecture",
+    "description": "Definitions for Cybertale architecture",
     "type": "library",
     "autoload": {
         "psr-4": {
@@ -14,5 +14,5 @@
     ],
     "require": {},
     "license": "GPL-3.0-only",
-    "version": "2.0.1"
+    "version": "2.0.2"
 }

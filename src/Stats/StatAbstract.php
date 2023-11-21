@@ -13,7 +13,7 @@ abstract class StatAbstract
         return $this->data;
     }
 
-    public function setData(?string $data): StatAbstract
+    public function setData(null|bool|string $data): StatAbstract
     {
         $this->data = $data;
         return $this;

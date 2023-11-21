@@ -20,7 +20,7 @@ abstract class ObjectTypeAbstract
     protected array $stats;
     public abstract function get(): ObjectTemplate;
 
-    public function setStats(StatsEnum $statsEnum, string|bool $data): ObjectTypeAbstract
+    public function setStats(StatsEnum $statsEnum, string|bool|null $data): ObjectTypeAbstract
     {
         $this->stats[$statsEnum->value] = StatType::getCaseFunctionMapping()[$statsEnum->value]->setData($data);
         return $this;
