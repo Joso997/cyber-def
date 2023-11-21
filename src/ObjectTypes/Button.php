@@ -20,6 +20,6 @@ class Button extends ObjectTypeAbstract
 
     public function get(): ObjectTemplate
     {
-        return new ObjectTemplate(RegionsEnum::Form, ObjectsEnum::Button, SubObjectsEnum::Middle, ActionsEnum::None, $this->stats);
+        return new ObjectTemplate(RegionsEnum::Form, ObjectsEnum::Button, SubObjectsEnum::Middle, ActionsEnum::Click, $this->stats);
     }
 }
