@@ -14,6 +14,7 @@ class FormComponent extends ComponentAbstract
         $arr = [];
         foreach ($objectTemplates as $objectTemplate) {
             $objectTemplate->setRegion(RegionsEnum::Form);
+            $arr[] = $objectTemplate;
         }
         $objectTemplates = $arr;
         parent::__construct($objectTemplates);

@@ -10,7 +10,14 @@ use Cybertale\Definition\ObjectTemplate;
 
 abstract class ComponentAbstract
 {
+    /**
+     * @var ObjectTemplate[]
+     */
     protected array $objectTemplates;
+
+    /**
+     * @return array
+     */
     public function toArray() : array{
         $arr = [];
         foreach ($this->objectTemplates as $objectTemplate){
@@ -24,11 +31,19 @@ abstract class ComponentAbstract
         }
         return $arr;
     }
-    public function __construct(array ...$objectTemplates)
+
+    /**
+     * @param ObjectTemplate[] $objectTemplates
+     */
+    public function __construct(array $objectTemplates)
     {
-        $this->objectTemplates[] = $objectTemplates;
+        $this->objectTemplates = $objectTemplates;
     }
 
+    /**
+     * @param RegionsEnum $region
+     * @return $this
+     */
     public function changeDefaultRegion(RegionsEnum $region): ComponentAbstract
     {
         $arr = [];
@@ -39,6 +54,10 @@ abstract class ComponentAbstract
         return $this;
     }
 
+    /**
+     * @param ObjectsEnum $objectType
+     * @return $this
+     */
     public function changeDefaultObjectType(ObjectsEnum $objectType): ComponentAbstract
     {
         $arr = [];
@@ -49,6 +68,10 @@ abstract class ComponentAbstract
         return $this;
     }
 
+    /**
+     * @param SubObjectsEnum $subObjectType
+     * @return $this
+     */
     public function changeDefaultSubObjectType(SubObjectsEnum $subObjectType): ComponentAbstract
     {
         $arr = [];
@@ -59,6 +82,10 @@ abstract class ComponentAbstract
         return $this;
     }
 
+    /**
+     * @param ActionsEnum $actionType
+     * @return $this
+     */
     public function changeDefaultAction(ActionsEnum $actionType): ComponentAbstract
     {
         $arr = [];
@@ -69,6 +96,13 @@ abstract class ComponentAbstract
         return $this;
     }
 
+    /**
+     * @param RegionsEnum $region
+     * @param ObjectsEnum $objectType
+     * @param SubObjectsEnum $subObjectType
+     * @param ActionsEnum $actionType
+     * @return $this
+     */
     public function changeDefaultIndicators(RegionsEnum $region, ObjectsEnum $objectType, SubObjectsEnum $subObjectType, ActionsEnum $actionType): ComponentAbstract
     {
         $arr = [];

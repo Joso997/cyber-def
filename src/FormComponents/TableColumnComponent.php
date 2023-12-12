@@ -14,6 +14,7 @@ class TableColumnComponent extends ComponentAbstract
         $arr = [];
         foreach ($objectTemplates as $objectTemplate) {
             $objectTemplate->setRegion(RegionsEnum::TableColumn);
+            $arr[] = $objectTemplate;
         }
         $objectTemplates = $arr;
         parent::__construct($objectTemplates);
