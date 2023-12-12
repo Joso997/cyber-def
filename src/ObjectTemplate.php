@@ -11,9 +11,21 @@ use Cybertale\Definition\Stats\StatAbstract;
 
 class ObjectTemplate
 {
+    /**
+     * @var RegionsEnum
+     */
     protected RegionsEnum $region;
+    /**
+     * @var ObjectsEnum
+     */
     protected ObjectsEnum $objectType;
+    /**
+     * @var SubObjectsEnum
+     */
     protected SubObjectsEnum $subObjectType;
+    /**
+     * @var ActionsEnum
+     */
     protected ActionsEnum $action;
 
     /**
@@ -21,6 +33,9 @@ class ObjectTemplate
      */
     protected array $stats;
 
+    /**
+     * @return array
+     */
     public function statsToArray(): array {
         $arr = [];
         foreach ($this->stats as $key => $value){
@@ -31,24 +46,40 @@ class ObjectTemplate
         return $arr;
     }
 
+    /**
+     * @param RegionsEnum $region
+     * @return $this
+     */
     public function setRegion(RegionsEnum $region): ObjectTemplate
     {
         $this->region = $region;
         return $this;
     }
 
+    /**
+     * @param ObjectsEnum $objectType
+     * @return $this
+     */
     public function setObjectType(ObjectsEnum $objectType): ObjectTemplate
     {
         $this->objectType = $objectType;
         return $this;
     }
 
+    /**
+     * @param SubObjectsEnum $subObjectType
+     * @return $this
+     */
     public function setSubObjectType(SubObjectsEnum $subObjectType): ObjectTemplate
     {
         $this->subObjectType = $subObjectType;
         return $this;
     }
 
+    /**
+     * @param ActionsEnum $action
+     * @return $this
+     */
     public function setAction(ActionsEnum $action): ObjectTemplate
     {
         $this->action = $action;
@@ -80,26 +111,41 @@ class ObjectTemplate
         $this->stats = $stats;
     }
 
+    /**
+     * @return StatAbstract[]
+     */
     public function getStats(): array
     {
         return $this->stats;
     }
 
+    /**
+     * @return RegionsEnum
+     */
     public function getRegion(): RegionsEnum
     {
         return $this->region;
     }
 
+    /**
+     * @return ObjectsEnum
+     */
     public function getObjectType(): ObjectsEnum
     {
         return $this->objectType;
     }
 
+    /**
+     * @return SubObjectsEnum
+     */
     public function getSubObjectType(): SubObjectsEnum
     {
         return $this->subObjectType;
     }
 
+    /**
+     * @return ActionsEnum
+     */
     public function getAction(): ActionsEnum
     {
         return $this->action;

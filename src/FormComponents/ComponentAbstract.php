@@ -49,6 +49,7 @@ abstract class ComponentAbstract
         $arr = [];
         foreach ($this->objectTemplates as $objectTemplate){
             $objectTemplate->setRegion($region);
+            $arr[] = $objectTemplate;
         }
         $this->objectTemplates = $arr;
         return $this;
@@ -63,6 +64,7 @@ abstract class ComponentAbstract
         $arr = [];
         foreach ($this->objectTemplates as $objectTemplate){
             $objectTemplate->setObjectType($objectType);
+            $arr[] = $objectTemplate;
         }
         $this->objectTemplates = $arr;
         return $this;
@@ -77,6 +79,7 @@ abstract class ComponentAbstract
         $arr = [];
         foreach ($this->objectTemplates as $objectTemplate){
             $objectTemplate->setSubObjectType($subObjectType);
+            $arr[] = $objectTemplate;
         }
         $this->objectTemplates = $arr;
         return $this;
@@ -91,6 +94,7 @@ abstract class ComponentAbstract
         $arr = [];
         foreach ($this->objectTemplates as $objectTemplate){
             $objectTemplate->setAction($actionType);
+            $arr[] = $objectTemplate;
         }
         $this->objectTemplates = $arr;
         return $this;
@@ -111,6 +115,7 @@ abstract class ComponentAbstract
             $objectTemplate->setObjectType($objectType);
             $objectTemplate->setSubObjectType($subObjectType);
             $objectTemplate->setAction($actionType);
+            $arr[] = $objectTemplate;
         }
         $this->objectTemplates = $arr;
         return $this;
