@@ -3,14 +3,19 @@
 namespace Cybertale\Definition\FormComponents;
 
 
+use Cybertale\Definition\Helpers\ActionsEnum;
 use Cybertale\Definition\Helpers\RegionsEnum;
 use Cybertale\Definition\ObjectTemplate;
 
 class TableColumnComponent extends ComponentAbstract
 {
-    public function __construct(ObjectTemplate $objectTemplate)
+    public function __construct(ObjectTemplate ...$objectTemplates)
     {
-        $objectTemplate->setRegion(RegionsEnum::TableColumn);
-        parent::__construct($objectTemplate);
+        $arr = [];
+        foreach ($objectTemplates as $objectTemplate) {
+            $objectTemplate->setRegion(RegionsEnum::TableColumn);
+        }
+        $objectTemplates = $arr;
+        parent::__construct($objectTemplates);
     }
 }

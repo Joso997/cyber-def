@@ -3,14 +3,19 @@
 namespace Cybertale\Definition\FormComponents;
 
 
+use Cybertale\Definition\Helpers\ActionsEnum;
 use Cybertale\Definition\Helpers\RegionsEnum;
 use Cybertale\Definition\ObjectTemplate;
 
 class FormComponent extends ComponentAbstract
 {
-    public function __construct(ObjectTemplate $objectTemplate)
+    public function __construct(ObjectTemplate ...$objectTemplates)
     {
-        $objectTemplate->setRegion(RegionsEnum::Form);
-        parent::__construct($objectTemplate);
+        $arr = [];
+        foreach ($objectTemplates as $objectTemplate) {
+            $objectTemplate->setRegion(RegionsEnum::Form);
+        }
+        $objectTemplates = $arr;
+        parent::__construct($objectTemplates);
     }
 }

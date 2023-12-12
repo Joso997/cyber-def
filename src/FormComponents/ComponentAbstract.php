@@ -10,51 +10,75 @@ use Cybertale\Definition\ObjectTemplate;
 
 abstract class ComponentAbstract
 {
-    protected readonly ObjectTemplate $objectTemplate;
+    protected array $objectTemplates;
     public function toArray() : array{
-        return [
-            "Stats" => $this->objectTemplate->statsToArray(),
-            "Region" => $this->objectTemplate->getRegion(),
-            "ObjectEnum" => $this->objectTemplate->getObjectType(),
-            "SubObjectEnum" => $this->objectTemplate->getSubObjectType(),
-            "ActionEnum" => $this->objectTemplate->getAction()
-        ];
+        $arr = [];
+        foreach ($this->objectTemplates as $objectTemplate){
+            $arr[] = [
+                "Stats" => $objectTemplate->statsToArray(),
+                "Region" => $objectTemplate->getRegion(),
+                "ObjectEnum" => $objectTemplate->getObjectType(),
+                "SubObjectEnum" => $objectTemplate->getSubObjectType(),
+                "ActionEnum" => $objectTemplate->getAction()
+            ];
+        }
+        return $arr;
     }
-    public function __construct(ObjectTemplate $objectTemplate)
+    public function __construct(array ...$objectTemplates)
     {
-        $this->objectTemplate = $objectTemplate;
+        $this->objectTemplates[] = $objectTemplates;
     }
 
     public function changeDefaultRegion(RegionsEnum $region): ComponentAbstract
     {
-        $this->objectTemplate->setRegion($region);
+        $arr = [];
+        foreach ($this->objectTemplates as $objectTemplate){
+            $objectTemplate->setRegion($region);
+        }
+        $this->objectTemplates = $arr;
         return $this;
     }
 
     public function changeDefaultObjectType(ObjectsEnum $objectType): ComponentAbstract
     {
-        $this->objectTemplate->setObjectType($objectType);
+        $arr = [];
+        foreach ($this->objectTemplates as $objectTemplate){
+            $objectTemplate->setObjectType($objectType);
+        }
+        $this->objectTemplates = $arr;
         return $this;
     }
 
     public function changeDefaultSubObjectType(SubObjectsEnum $subObjectType): ComponentAbstract
     {
-        $this->objectTemplate->setSubObjectType($subObjectType);
+        $arr = [];
+        foreach ($this->objectTemplates as $objectTemplate){
+            $objectTemplate->setSubObjectType($subObjectType);
+        }
+        $this->objectTemplates = $arr;
         return $this;
     }
 
     public function changeDefaultAction(ActionsEnum $actionType): ComponentAbstract
     {
-        $this->objectTemplate->setAction($actionType);
+        $arr = [];
+        foreach ($this->objectTemplates as $objectTemplate){
+            $objectTemplate->setAction($actionType);
+        }
+        $this->objectTemplates = $arr;
         return $this;
     }
 
     public function changeDefaultIndicators(RegionsEnum $region, ObjectsEnum $objectType, SubObjectsEnum $subObjectType, ActionsEnum $actionType): ComponentAbstract
     {
-        $this->objectTemplate->setRegion($region);
-        $this->objectTemplate->setObjectType($objectType);
-        $this->objectTemplate->setSubObjectType($subObjectType);
-        $this->objectTemplate->setAction($actionType);
+        $arr = [];
+        foreach ($this->objectTemplates as $objectTemplate) {
+            $objectTemplate->setRegion($region);
+            $objectTemplate->setObjectType($objectType);
+            $objectTemplate->setSubObjectType($subObjectType);
+            $objectTemplate->setAction($actionType);
+        }
+        $this->objectTemplates = $arr;
         return $this;
     }
 }
