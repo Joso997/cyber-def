@@ -15,7 +15,7 @@ enum ObjectsEnum: int
     case SelectList = 8;
     case Radio = 9;
     case Column = 10;
-    case ColumnButton = 11;
+    case ColumnButton = 11; //ColumnGroup
     case InputGroup = 12;
     case ECabinetRow = 13;
     case ECabinetColumn = 14;

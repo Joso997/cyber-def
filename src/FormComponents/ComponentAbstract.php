@@ -11,7 +11,15 @@ use Cybertale\Definition\ObjectTemplate;
 abstract class ComponentAbstract
 {
     protected readonly ObjectTemplate $objectTemplate;
-    public abstract function toArray() : array;
+    public function toArray() : array{
+        return [
+            "Stats" => $this->objectTemplate->statsToArray(),
+            "Region" => $this->objectTemplate->getRegion(),
+            "ObjectEnum" => $this->objectTemplate->getObjectType(),
+            "SubObjectEnum" => $this->objectTemplate->getSubObjectType(),
+            "ActionEnum" => $this->objectTemplate->getAction()
+        ];
+    }
     public function __construct(ObjectTemplate $objectTemplate)
     {
         $this->objectTemplate = $objectTemplate;
