@@ -21,6 +21,7 @@ enum StatsEnum: int
     case IsValid = 14;
     case Order = 15;
     case DependsOn = 16;
+    case Name = 17;
 }
 
 
