@@ -28,6 +28,7 @@ class StatType
             StatsEnum::IsValid->value => new StatClosure(fn() => (new IsValid())->createStat()),
             StatsEnum::Order->value => new StatClosure(fn() => (new Order())->createStat()),
             StatsEnum::DependsOn->value => new StatClosure(fn() => (new DependsOn())->createStat()),
+            StatsEnum::Name->value => new StatClosure(fn() => (new Name())->createStat()),
         ];
     }
 }
