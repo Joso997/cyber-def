@@ -5,6 +5,7 @@ namespace Cybertale\Definition;
 use Cybertale\Definition\Helpers\ActionsEnum;
 use Cybertale\Definition\Helpers\ObjectsEnum;
 use Cybertale\Definition\Helpers\RegionsEnum;
+use Cybertale\Definition\Helpers\StatsEnum;
 use Cybertale\Definition\Helpers\SubObjectsEnum;
 use Cybertale\Definition\ObjectTypes\ObjectTypeAbstract;
 use Cybertale\Definition\Stats\StatAbstract;
@@ -100,9 +101,9 @@ class ObjectTemplate
      * @param StatAbstract $stat
      * @return $this
      */
-    public function appendStat(StatAbstract $stat): ObjectTemplate
+    public function appendStat(StatsEnum $statsEnum, StatAbstract $stat): ObjectTemplate
     {
-        $this->stats[] = $stat;
+        $this->stats[$statsEnum->value] = $stat;
         return $this;
     }
 
