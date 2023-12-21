@@ -97,6 +97,16 @@ class ObjectTemplate
     }
 
     /**
+     * @param StatAbstract $stat
+     * @return $this
+     */
+    public function appendStat(StatAbstract $stat): ObjectTemplate
+    {
+        $this->stats[] = $stat;
+        return $this;
+    }
+
+    /**
      * @param RegionsEnum $region
      * @param ObjectsEnum $objectType
      * @param SubObjectsEnum $subObjectType
