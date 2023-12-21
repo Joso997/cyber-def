@@ -29,6 +29,8 @@ class StatType
             StatsEnum::Order->value => new StatClosure(fn() => (new Order())->createStat()),
             StatsEnum::DependsOn->value => new StatClosure(fn() => (new DependsOn())->createStat()),
             StatsEnum::Name->value => new StatClosure(fn() => (new Name())->createStat()),
+            StatsEnum::Inherit->value => new StatClosure(fn() => (new Inherit())->createStat()),
+            StatsEnum::BreakLine->value => new StatClosure(fn() => (new BreakLine())->createStat()),
         ];
     }
 }

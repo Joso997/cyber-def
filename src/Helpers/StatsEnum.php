@@ -22,6 +22,8 @@ enum StatsEnum: int
     case Order = 15;
     case DependsOn = 16;
     case Name = 17;
+    case Inherit = 18;
+    case BreakLine = 19;
 }
 
 
