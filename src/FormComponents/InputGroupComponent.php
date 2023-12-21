@@ -18,7 +18,7 @@ class InputGroupComponent extends ComponentAbstract
             ->setData(json_encode([StatsEnum::Value->value, StatsEnum::ErrorMessage->value, StatsEnum::IsValid->value]));
         foreach ($objectTemplates as $objectTemplate) {
             $arr[] = $objectTemplate->setRegion(RegionsEnum::Form)
-                ->appendStat($inherits);
+                ->appendStat(StatsEnum::Inherit, $inherits);
         }
         $objectTemplates = $arr;
         parent::__construct($objectTemplates);
