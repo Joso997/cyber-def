@@ -33,6 +33,7 @@ class StatType
             StatsEnum::BreakLine->value => new StatClosure(fn() => (new BreakLine())->createStat()),
             StatsEnum::ValueIndices->value => new StatClosure(fn() => (new ValueIndices())->createStat()),
             StatsEnum::OptionIndices->value => new StatClosure(fn() => (new OptionIndices())->createStat()),
+            StatsEnum::Option->value => new StatClosure(fn() => (new Option())->createStat()),
         ];
     }
 }
