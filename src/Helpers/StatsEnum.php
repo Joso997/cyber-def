@@ -24,6 +24,8 @@ enum StatsEnum: int
     case Name = 17;
     case Inherit = 18;
     case BreakLine = 19;
+    case ValueIndices = 20;
+    case OptionIndices = 21;
 }
 
 
