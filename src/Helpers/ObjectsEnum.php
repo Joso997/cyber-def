@@ -24,4 +24,5 @@ enum ObjectsEnum: int
     case MultiMedia = 17;
     case UploadFile = 18;
     case Label = 19;
+    case ModalList = 20;
 }
