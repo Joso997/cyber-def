@@ -11,12 +11,18 @@ use Cybertale\Definition\ObjectTemplate;
 
 class MapPicker extends ObjectTypeAbstract
 {
+    protected array $statParamMapping = [
+        'label' => StatsEnum::Label,
+        'tag' => StatsEnum::Tag,
+        'design' => StatsEnum::Design,
+        'id' => StatsEnum::Id,
+        'value' => StatsEnum::Value,
+    ];
+
     public function __construct (string $label, string $tag, string $design, string $id = null, array $value = null) {
-        $this->setStats(StatsEnum::Label, $label)
-            ->setStats(StatsEnum::Value, json_encode($value))
-            ->setStats(StatsEnum::Tag, $tag)
-            ->setStats(StatsEnum::Design, $design)
-            ->setStats(StatsEnum::Id, $id);
+        // TODO: value will be json_encoded in setStats, which is not ideal.
+        // This will be addressed when StatAbstract::setData and ObjectTypeAbstract::setStats handle mixed types.
+        $this->_initializeStats(get_defined_vars());
     }
 
     public function get(): ObjectTemplate

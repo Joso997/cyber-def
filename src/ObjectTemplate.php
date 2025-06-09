@@ -35,13 +35,19 @@ class ObjectTemplate
     protected array $stats;
 
     /**
-     * @return array
+     * Returns an array representation of the stats, mapping enum values to their data.
+     *
+     * @return array<int, mixed> Maps StatsEnum->value to the data from StatAbstract::getData().
+     *                           The type of 'mixed' depends on the Stat type (string, bool, array, etc.).
+     * @psalm-return array<value-of<\Cybertale\Definition\Helpers\StatsEnum>, mixed>
      */
     public function statsToArray(): array {
         $arr = [];
-        foreach ($this->stats as $key => $value){
-            if ($value instanceof StatAbstract) {
-                $arr[$key] = ['Data' => $value->getData()];
+        foreach ($this->stats as $key => $statInstance){ // Renamed $value to $statInstance for clarity
+            // Assuming $this->stats only contains StatAbstract instances due to typed properties
+            // or controlled setters. If not, instanceof check is still good.
+            if ($statInstance instanceof \Cybertale\Definition\Stats\StatAbstract) {
+                $arr[$key] = $statInstance->getData();
             }
         }
         return $arr;

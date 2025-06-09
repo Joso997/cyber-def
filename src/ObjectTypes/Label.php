@@ -11,10 +11,14 @@ use Cybertale\Definition\ObjectTemplate;
 
 class Label extends ObjectTypeAbstract
 {
+    protected array $statParamMapping = [
+        'label' => StatsEnum::Label,
+        'tag' => StatsEnum::Tag,
+        'design' => StatsEnum::Design,
+    ];
+
     public function __construct (string $label, string $tag, string $design) {
-        $this->setStats(StatsEnum::Label, $label)
-            ->setStats(StatsEnum::Tag, $tag)
-            ->setStats(StatsEnum::Design, $design);
+        $this->_initializeStats(get_defined_vars());
     }
 
     public function get(): ObjectTemplate

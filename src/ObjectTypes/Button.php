@@ -11,11 +11,15 @@ use Cybertale\Definition\ObjectTemplate;
 
 class Button extends ObjectTypeAbstract
 {
+    protected array $statParamMapping = [
+        'label' => StatsEnum::Label,
+        'tag' => StatsEnum::Tag,
+        'design' => StatsEnum::Design,
+        'id' => StatsEnum::Id,
+    ];
+
     public function __construct (string $label, string $tag, string $design, string $id = null) {
-        $this->setStats(StatsEnum::Label, $label)
-            ->setStats(StatsEnum::Design, $design)
-            ->setStats(StatsEnum::Tag, $tag)
-            ->setStats(StatsEnum::Id, $id);
+        $this->_initializeStats(get_defined_vars());
     }
 
     public function get(): ObjectTemplate

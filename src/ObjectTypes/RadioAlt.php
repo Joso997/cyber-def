@@ -11,11 +11,15 @@ use Cybertale\Definition\ObjectTemplate;
 
 class RadioAlt extends ObjectTypeAbstract
 {
+    protected array $statParamMapping = [
+        'tag' => StatsEnum::Tag,
+        'name' => StatsEnum::Name,
+        'id' => StatsEnum::Id,
+        'value' => StatsEnum::Value,
+    ];
+
     public function __construct (string $tag, string $name, string $id = null, string $value = null) {
-        $this->setStats(StatsEnum::Value, $value)
-            ->setStats(StatsEnum::Tag, $tag)
-            ->setStats(StatsEnum::Id, $id)
-            ->setStats(StatsEnum::Name, $name);
+        $this->_initializeStats(get_defined_vars());
     }
 
     public function get(): ObjectTemplate

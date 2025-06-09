@@ -11,11 +11,15 @@ use Cybertale\Definition\ObjectTemplate;
 
 class Field extends ObjectTypeAbstract
 {
+    protected array $statParamMapping = [
+        'tag' => StatsEnum::Tag,
+        'id' => StatsEnum::Id,
+        'design' => StatsEnum::Design,
+        'value' => StatsEnum::Value,
+    ];
+
     public function __construct (string $tag, string $id = null, string $design = '', string $value = null) {
-        $this->setStats(StatsEnum::Value, $value)
-            ->setStats(StatsEnum::Tag, $tag)
-            ->setStats(StatsEnum::Design, $design)
-            ->setStats(StatsEnum::Id, $id);
+        $this->_initializeStats(get_defined_vars());
     }
 
     public function get(): ObjectTemplate

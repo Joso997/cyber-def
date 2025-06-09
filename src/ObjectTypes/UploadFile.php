@@ -11,11 +11,15 @@ use Cybertale\Definition\ObjectTemplate;
 
 class UploadFile extends ObjectTypeAbstract
 {
+    protected array $statParamMapping = [
+        'label' => StatsEnum::Label,
+        'tag' => StatsEnum::Tag,
+        'id' => StatsEnum::Id,
+        'value' => StatsEnum::Value,
+    ];
+
     public function __construct (string $label, string $tag, string $id = null, string $value = null) {
-        $this->setStats(StatsEnum::Label, $label)
-            ->setStats(StatsEnum::Value, $value)
-            ->setStats(StatsEnum::Tag, $tag)
-            ->setStats(StatsEnum::Id, $id);
+        $this->_initializeStats(get_defined_vars());
     }
 
     public function get(): ObjectTemplate

@@ -11,11 +11,17 @@ use Cybertale\Definition\ObjectTemplate;
 
 class Radio extends ObjectTypeAbstract
 {
+    protected array $statParamMapping = [
+        'tag' => StatsEnum::Tag,
+        'itemList' => StatsEnum::ItemList,
+        'id' => StatsEnum::Id,
+        'value' => StatsEnum::Value,
+    ];
+
     public function __construct (string $tag, array $itemList, string $id = null, string $value = null) {
-        $this->setStats(StatsEnum::Value, $value)
-            ->setStats(StatsEnum::Tag, $tag)
-            ->setStats(StatsEnum::Id, $id)
-            ->setStats(StatsEnum::ItemList, json_encode($itemList));
+        // TODO: itemList will be json_encoded in setStats, which is not ideal.
+        // This will be addressed when StatAbstract::setData and ObjectTypeAbstract::setStats handle mixed types.
+        $this->_initializeStats(get_defined_vars());
     }
 
     public function get(): ObjectTemplate

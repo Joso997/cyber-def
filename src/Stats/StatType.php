@@ -7,33 +7,33 @@ use Cybertale\Definition\Helpers\StatsEnum;
 class StatType
 {
     /**
-     * @return array<int, StatClosure>
+     * @return array<int, class-string<StatAbstract>>
      */
-    public static function getCaseFunctionMapping (): array {
+    public static function getStatClassMapping (): array {
         return [
-            StatsEnum::Label->value => new StatClosure(fn(): StatAbstract => (new Label())->createStat()),
-            StatsEnum::Value->value => new StatClosure(fn() => (new Value())->createStat()),
-            StatsEnum::Design->value => new StatClosure(fn() => (new Design())->createStat()),
-            StatsEnum::Tag->value => new StatClosure(fn() => (new Tag())->createStat()),
-            StatsEnum::Id->value => new StatClosure(fn() => (new Id())->createStat()),
-            StatsEnum::ElementType->value => new StatClosure(fn() => (new ElementType())->createStat()),
-            StatsEnum::Placeholder->value => new StatClosure(fn() => (new Placeholder())->createStat()),
-            StatsEnum::ItemList->value => new StatClosure(fn() => (new ItemList())->createStat()),
-            StatsEnum::Tooltip->value => new StatClosure(fn() => (new Tooltip())->createStat()),
-            StatsEnum::Required->value => new StatClosure(fn() => (new Required())->createStat()),
-            StatsEnum::Disabled->value => new StatClosure(fn() => (new Disabled())->createStat()),
-            StatsEnum::AutoComplete->value => new StatClosure(fn() => (new AutoComplete())->createStat()),
-            StatsEnum::BelongsTo->value => new StatClosure(fn() => (new BelongsTo())->createStat()),
-            StatsEnum::ErrorMessage->value => new StatClosure(fn() => (new ErrorMessage())->createStat()),
-            StatsEnum::IsValid->value => new StatClosure(fn() => (new IsValid())->createStat()),
-            StatsEnum::Order->value => new StatClosure(fn() => (new Order())->createStat()),
-            StatsEnum::DependsOn->value => new StatClosure(fn() => (new DependsOn())->createStat()),
-            StatsEnum::Name->value => new StatClosure(fn() => (new Name())->createStat()),
-            StatsEnum::Inherit->value => new StatClosure(fn() => (new Inherit())->createStat()),
-            StatsEnum::BreakLine->value => new StatClosure(fn() => (new BreakLine())->createStat()),
-            StatsEnum::ValueIndices->value => new StatClosure(fn() => (new ValueIndices())->createStat()),
-            StatsEnum::OptionIndices->value => new StatClosure(fn() => (new OptionIndices())->createStat()),
-            StatsEnum::Option->value => new StatClosure(fn() => (new Option())->createStat()),
+            StatsEnum::Label->value => \Cybertale\Definition\Stats\Label::class,
+            StatsEnum::Value->value => \Cybertale\Definition\Stats\Value::class,
+            StatsEnum::Design->value => \Cybertale\Definition\Stats\Design::class,
+            StatsEnum::Tag->value => \Cybertale\Definition\Stats\Tag::class,
+            StatsEnum::Id->value => \Cybertale\Definition\Stats\Id::class,
+            StatsEnum::ElementType->value => \Cybertale\Definition\Stats\ElementType::class,
+            StatsEnum::Placeholder->value => \Cybertale\Definition\Stats\Placeholder::class,
+            StatsEnum::ItemList->value => \Cybertale\Definition\Stats\ItemList::class,
+            StatsEnum::Tooltip->value => \Cybertale\Definition\Stats\Tooltip::class,
+            StatsEnum::Required->value => \Cybertale\Definition\Stats\Required::class,
+            StatsEnum::Disabled->value => \Cybertale\Definition\Stats\Disabled::class,
+            StatsEnum::AutoComplete->value => \Cybertale\Definition\Stats\AutoComplete::class,
+            StatsEnum::BelongsTo->value => \Cybertale\Definition\Stats\BelongsTo::class,
+            StatsEnum::ErrorMessage->value => \Cybertale\Definition\Stats\ErrorMessage::class,
+            StatsEnum::IsValid->value => \Cybertale\Definition\Stats\IsValid::class,
+            StatsEnum::Order->value => \Cybertale\Definition\Stats\Order::class,
+            StatsEnum::DependsOn->value => \Cybertale\Definition\Stats\DependsOn::class,
+            StatsEnum::Name->value => \Cybertale\Definition\Stats\Name::class,
+            StatsEnum::Inherit->value => \Cybertale\Definition\Stats\Inherit::class,
+            StatsEnum::BreakLine->value => \Cybertale\Definition\Stats\BreakLine::class,
+            StatsEnum::ValueIndices->value => \Cybertale\Definition\Stats\ValueIndices::class,
+            StatsEnum::OptionIndices->value => \Cybertale\Definition\Stats\OptionIndices::class,
+            StatsEnum::Option->value => \Cybertale\Definition\Stats\Option::class,
         ];
     }
 }
