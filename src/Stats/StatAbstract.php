@@ -6,7 +6,7 @@ abstract class StatAbstract
 {
     protected string|bool|null $data;
 
-    public function getData(): ?string
+    public function getData(): string|bool|null
     {
         return $this->data;
     }
