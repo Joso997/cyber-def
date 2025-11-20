@@ -5,7 +5,7 @@ namespace Cybertale\Definition\Stats;
 abstract class StatAbstract
 {
     protected string|bool|null $data;
-    protected string|bool|null $metaData;
+    protected string|bool|null $metaData = null;
 
     public function getData(): string|bool|null
     {
@@ -25,7 +25,7 @@ abstract class StatAbstract
 
     public function setMetaData(null|bool|string $data): StatAbstract
     {
-        $this->metaData = $metaData;
+        $this->metaData = $data;
         return $this;
     }
 
