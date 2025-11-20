@@ -17,14 +17,23 @@ abstract class ObjectTypeAbstract
 
     public function setStats(StatsEnum $statsEnum, string|bool|null $data): ObjectTypeAbstract
     {
-        $this->stats[$statsEnum->value] = StatType::getCaseFunctionMapping()[$statsEnum->value]->setData($data);
+        if (!isset($this->stats[$statsEnum->value])) {
+            $this->stats[$statsEnum->value] = StatType::getCaseFunctionMapping()[$statsEnum->value]->createStat();
+        }
+
+        $this->stats[$statsEnum->value]->setData($data);
         return $this;
     }
 
     public function setStatsMeta(StatsEnum $statsEnum, string|bool|null $data): ObjectTypeAbstract
     {
-        $this->stats[$statsEnum->value] = StatType::getCaseFunctionMapping()[$statsEnum->value]->setMetaData($data);
+        if (!isset($this->stats[$statsEnum->value])) {
+            $this->stats[$statsEnum->value] = StatType::getCaseFunctionMapping()[$statsEnum->value]->createStat();
+        }
+
+        $this->stats[$statsEnum->value]->setMetaData($data);
         return $this;
     }
+
 
 }

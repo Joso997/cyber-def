@@ -4,7 +4,7 @@ namespace Cybertale\Definition\Stats;
 
 abstract class StatAbstract
 {
-    protected string|bool|null $data = null;
+    protected string|bool|null $data;
     protected string|bool|null $metaData = null;
 
     public function getData(): string|bool|null
