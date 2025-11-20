@@ -25,4 +25,9 @@ class StatClosure {
     {
         return ($this->closure)()->setData($data);
     }
+
+    public function setMetaData(null|bool|string $data): StatAbstract
+    {
+        return ($this->closure)()->setMetaData($data);
+    }
 }

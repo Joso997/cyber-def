@@ -37,14 +37,19 @@ class ObjectTemplate
     /**
      * @return array
      */
-    public function statsToArray(): array {
-        $arr = [];
-        foreach ($this->stats as $key => $value){
-            if ($value instanceof StatAbstract) {
-                $arr[$key] = ['Data' => $value->getData()];
-            }
-        }
-        return $arr;
+    public function statsToArray(): array { 
+        $result = []; 
+        foreach ($this->stats as $key => $stat) { 
+            if ($stat instanceof StatAbstract) { 
+                $data = $stat->getData(); 
+                $meta = $stat->getMetaData(); 
+                if ($meta === null) { 
+                    $result[$key] = ['Data' => $data]; 
+                } else { 
+                    $result[$key] = [ 'Data' => $data, 'Meta' => $meta, ]; 
+                } 
+            } 
+        } return $result; 
     }
 
     /**

@@ -21,4 +21,10 @@ abstract class ObjectTypeAbstract
         return $this;
     }
 
+    public function setStatsMeta(StatsEnum $statsEnum, string|bool|null $data): ObjectTypeAbstract
+    {
+        $this->stats[$statsEnum->value] = StatType::getCaseFunctionMapping()[$statsEnum->value]->setMetaData($data);
+        return $this;
+    }
+
 }
